@@ -44,16 +44,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors();
-        http.csrf()
-                .disable()
-                .authorizeRequests()
-                .antMatchers("/testing","/register", "/signup", "/authenticate", "/notification", "/password",
-                        "/configuration/security","/h2-console/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .sessionManagement()
+       http.csrf() 
+                .disable() 
+                .authorizeRequests() 
+                .antMatchers("/testing","/register", "/signup", "/authenticate", "/notification", "/password", 
+                        "/configuration/security","/h2-console/**", "/login/**") 
+                .permitAll() 
+                .anyRequest() 
+                .authenticated() 
+                .and() 
+                .sessionManagement() 
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
     }
